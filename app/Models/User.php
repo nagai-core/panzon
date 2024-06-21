@@ -20,6 +20,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'username', // 新しく追加
+        'icon', // 新しく追加
     ];
 
     /**
