@@ -14,15 +14,16 @@ class ImageSeeder extends Seeder
     public function run(): void
     {
         // Example image URLs
-        $imageUrls = ['fish-8265114_1280.jpg'];
-
-        foreach ($imageUrls as $imageUrl) {
+        $imageFilenames = ['shokupan.jpg', 'melonpan.jpg', 'cookie.jpg', 'currypan.jpg'];
+        $itemId =0;
+        foreach ($imageFilenames as $imageUrl) {
             // Get the full URL to the image
-            $url = Storage::url($imageUrl);
-
+            $path = 'app/public/pan/' . $imageUrl;
+            $url = Storage::url($path);
+            $itemId++;
             // Insert into the database
             DB::table('images')->insert([
-                'item_id' => 1,
+                'item_id' => $itemId,
                 'url' => $url,
             ]);
         }
