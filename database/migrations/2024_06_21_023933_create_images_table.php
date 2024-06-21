@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->id();
             $table->foreignId('item_id');
+            $table->boolean('is_variable');
             $table->string('url');
             $table->timestamps();
         });

@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Support\Facades\Auth;
 
 class Item extends Model
 {
@@ -32,6 +34,24 @@ class Item extends Model
     public function images()
     {
         return $this->hasMany(Image::class);
+    }
+    // 最新のStockとのリレーション
+    public function latestStock(): HasOne
+    {
+        return $this->hasOne(Stock::class)->latestOfMany();
+    }
+    // is_viriableが1のImagesとのリレーション
+    public function variableImages()
+    {
+        return $this->hasMany(Image::class)->where('is_variable', 1);
+    }
+     // 認証されたオーナーのアイテムを取得するメソッド
+    public static function itemsOwner()
+    {
+        $ownerId = Auth::id();
+        return self::with(['category', 'latestStock', 'variableImages'])
+        ->where('owner_id', $ownerId)
+        ->get();
     }
     use HasFactory;
 }

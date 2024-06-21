@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('items', function (Blueprint $table) {
             $table->id();
             $table->foreignId('category_id');
+            $table->foreignId('owner_id');
+            $table->boolean('is_variable');
             $table->string('item_name');
             $table->integer('price');
             $table->string('content');
