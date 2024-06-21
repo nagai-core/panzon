@@ -18,12 +18,13 @@ class ImageSeeder extends Seeder
         $itemId =0;
         foreach ($imageFilenames as $imageUrl) {
             // Get the full URL to the image
-            $path = 'app/public/pan/' . $imageUrl;
+            $path = 'pan/' . $imageUrl;
             $url = Storage::url($path);
             $itemId++;
             // Insert into the database
             DB::table('images')->insert([
                 'item_id' => $itemId,
+                'is_variable' => true,
                 'url' => $url,
             ]);
         }
