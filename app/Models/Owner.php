@@ -13,5 +13,28 @@ class Owner extends Authenticatable
         'name',
         'email',
         'password',
+        'username', // 新しく追加
+        'icon', // 新しく追加
     ];
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
+    protected function casts(): array
+    {
+        return [
+            'email_verified_at' => 'datetime',
+            'password' => 'hashed',
+        ];
+    }
+    public function addresses()
+    {
+        return $this->hasMany(OwnerAddress::class);
+    }
+
+    public function items()
+    {
+        return $this->hasMany(Item::class);
+    }
 }
