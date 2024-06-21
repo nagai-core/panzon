@@ -51,3 +51,4 @@ class RegisteredUserController extends Controller
         return redirect(route('owner.dashboard', absolute: false));
     }
 }
+
