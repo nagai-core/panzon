@@ -9,7 +9,15 @@ use Illuminate\Support\Facades\Auth;
 
 class Item extends Model
 {
-    protected $fillable = ['name'];
+    protected $fillable = [
+        'category_id',
+        'owner_id',
+        'item_name',
+        'price',
+        'conext',
+        'is_viriable',
+    ];
+
     public function owner()
     {
         return $this->belongsTo(Owner::class);
@@ -52,6 +60,17 @@ class Item extends Model
         return self::with(['category', 'latestStock', 'variableImages'])
         ->where('owner_id', $ownerId)
         ->get();
+    }
+     // カテゴリ名でフィルターされたアイテムを取得するメソッド
+    public static function itemsByCategoryName($categoryName)
+    {
+        $ownerId = Auth::id();
+        return self::whereHas('category', function ($query) use ($categoryName) {
+            $query->where('name', $categoryName);
+        })
+            ->with(['category', 'latestStock', 'variableImages'])
+            ->where('owner_id', $ownerId)
+            ->get();
     }
     use HasFactory;
 }
