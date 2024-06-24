@@ -38,7 +38,7 @@ class ItemController extends Controller
 
         $stock = new Stock();
         $stock->item_id = $item->id;
-        $stock->amount = 0; // amountのデフォルト値を設定
+        $stock->amount = $request->amount; // amountのデフォルト値を設定
         $stock->save();
 
 

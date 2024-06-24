@@ -24,6 +24,10 @@
                 <textarea name="content" id="content" class="form-control"></textarea>
             </div>
             <div class="form-group">
+                <label for="amount">在庫数</label>
+                <input type="number" name="amount" id="amount" class="form-control" required>
+            </div>
+            <div class="form-group">
                 <label for="images">商品画像</label>
                 <input type="file" name="images[]" id="images" class="form-control" multiple>
             </div>
