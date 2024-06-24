@@ -19,7 +19,7 @@ Route::middleware('auth:users')->group(function () {
 });
 
 //パン一覧と詳細は/item/listルート
-Route::get('/item/list', [ItemController::class, 'list'])->name('item.list');
+Route::get('/list', [ItemController::class, 'list'])->name('item.list');
 //パン購入
-Route::get('/item/purchase', [ItemController::class, 'purchase'])->name('item.purchase');
+Route::get('/purchase', [ItemController::class, 'purchase'])->name('item.purchase');
 require __DIR__.'/auth.php';

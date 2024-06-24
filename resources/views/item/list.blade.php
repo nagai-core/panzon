@@ -3,7 +3,9 @@
     <h1>商品一覧</h1>
     <!-- Search Box -->
     <form action="{{ route('item.list') }}" method="GET" class="search-form">
-        <input type="text" name="search" placeholder="商品を検索する...">
+        <input type="text" name="search" placeholder="商品を検索する..." value="{{ request('search') }}">
+        <input type="hidden" name="category_id" value="{{ request('category_id') }}">
+        <input type="hidden" name="order" value="{{ request('order') }}">
         <button type="submit">検索</button>
     </form>
     <!-- Category Dropdown -->
@@ -11,10 +13,10 @@
         <button onclick="toggleDropdown('categoryDropdown')" class="dropbtn">カテゴリ ▼</button>
         <div id="categoryDropdown" class="dropdown-content">
             <!-- All Categories Option -->
-            <a href="{{ route('item.list') }}">全て</a>
+            <a href="{{ route('item.list', ['search' => request('search')]) }}">全て</a>
             <!-- Display all categories -->
             @foreach ($categories as $category)
-                <a href="{{ route('item.list', ['category_id' => $category->id]) }}">{{ $category->name }}</a>
+                <a href="{{ route('item.list', ['search' => request('search'), 'category_id' => $category->id]) }}">{{ $category->name }}</a>
             @endforeach
         </div>
     </div>
@@ -23,16 +25,18 @@
     <div class="dropdown">
         <button onclick="toggleDropdown('orderDropdown')" class="dropbtn">並び替え ▼</button>
         <div id="orderDropdown" class="dropdown-content">
-            <a href="{{ route('item.list', ['category_id' => request('category_id'), 'order' => 'price_asc']) }}">価格が安い順</a>
-            <a href="{{ route('item.list', ['category_id' => request('category_id'), 'order' => 'price_desc']) }}">価格が高い順</a>
-            <a href="{{ route('item.list', ['category_id' => request('category_id'), 'order' => 'date_desc']) }}">投稿日が新しい順</a>
-            <a href="{{ route('item.list', ['category_id' => request('category_id'), 'order' => 'date_asc']) }}">投稿日が古い順</a>
+            <a href="{{ route('item.list', ['search' => request('search'), 'category_id' => request('category_id'), 'order' => 'price_asc']) }}">価格が安い順</a>
+            <a href="{{ route('item.list', ['search' => request('search'), 'category_id' => request('category_id'), 'order' => 'price_desc']) }}">価格が高い順</a>
+            <a href="{{ route('item.list', ['search' => request('search'), 'category_id' => request('category_id'), 'order' => 'date_desc']) }}">投稿日が新しい順</a>
+            <a href="{{ route('item.list', ['search' => request('search'), 'category_id' => request('category_id'), 'order' => 'date_asc']) }}">投稿日が古い順</a>
         </div>
     </div>
     <div>
         <h2>現在のカテゴリ: {{ $selectedCategory }}</h2>
+        @if(request('search'))
+            <h2>検索ワード： {{ request('search') }}</h2>
+        @endif
     </div>
-    <!-- Display Items -->
     <div class="filtered-items">
         @foreach ($items as $item)
             @if ($item->is_variable)
@@ -62,6 +66,7 @@
     ログインしていません。ログインしてください。
 </div>
 @endif
+
 <style>
     /* Dropdown container */
     .dropdown {

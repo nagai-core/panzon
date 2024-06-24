@@ -45,7 +45,7 @@ class ItemSeeder extends Seeder
                 'category_id' => 4,
                 'owner_id' => 2,
                 'is_variable' => true,
-                'item_name' => '豆カレーパン',
+                'item_name' => '美味しい豆カレーパン',
                 'price' => 100,
                 'content' => '焼き立て',
                 'created_at' => now(),

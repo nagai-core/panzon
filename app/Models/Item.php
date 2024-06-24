@@ -103,11 +103,21 @@ class Item extends Model
                 return $query->orderBy('created_at', 'desc');
         }
     }
-    public static function orderItems($category_id, $order)
+    // 検索機能
+    public function scopeSearchItem($query,$search){
+        if ($search) {
+            return $query ->where('item_name', 'like', "%$search%")
+                    ->orWhere('content', 'like', "%$search%");
+        }
+    }
+    public static function orderItems($category_id, $order,$search)
     {
         return static::filterByCategory($category_id)
                     ->sortByOrder($order)
+                    ->searchItem($search)
                     ->get();
     }
     use HasFactory;
 }
+
+
