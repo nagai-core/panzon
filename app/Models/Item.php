@@ -54,12 +54,17 @@ class Item extends Model
         return $this->hasMany(Image::class)->where('is_variable', 1);
     }
      // 認証されたオーナーのアイテムを取得するメソッド
-    public static function itemsOwner()
+    public static function itemsOwner($search = null)
     {
         $ownerId = Auth::id();
-        return self::with(['category', 'latestStock', 'variableImages'])
-        ->where('owner_id', $ownerId)
-        ->get();
+        $query = self::with(['category', 'latestStock', 'variableImages'])
+            ->where('owner_id', $ownerId);
+
+        if ($search) {
+            $query->where('item_name', 'LIKE', '%' . $search . '%');
+        }
+
+        return $query->get();
     }
      // カテゴリ名でフィルターされたアイテムを取得するメソッド
     public static function itemsByCategoryName($categoryName)

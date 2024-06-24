@@ -11,11 +11,12 @@ use App\Models\Owner;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+
 class ItemController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $breads = Item::itemsOwner();
+        $breads = Item::itemsOwner($request->search);
         return view("owner.index", compact("breads"));
     }
 
