@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CartAddurchaseRequest;
+use App\Models\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
@@ -28,9 +30,22 @@ class ItemController extends Controller
         $categories = Category::all();
         return view('item.list', compact('items', 'categories', 'selectedCategory','search'));
     }
-    public function purchase(Request $request)
-    {
 
+    public function show($itemId) {
+        $item = Item::with(['images', 'latestStock'])->findOrFail($itemId);
+        return view('item.show', compact('item'));
     }
+
+    public function Store($itemId, CartAddurchaseRequest $request) {
+        $userId = Auth::id();
+        Cart::create([
+            'user_id' => $userId,
+            'item_id' => $itemId,
+            'amount' => $request->input('amount'),
+            'is_variable' => true
+        ]);
+        return redirect()->route('cart.index');
+    }
+
 }
 

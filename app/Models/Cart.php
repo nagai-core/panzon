@@ -7,6 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cart extends Model
 {
+    use HasFactory;
+    protected $fillable = [
+        'user_id',
+        'item_id',
+        'amount',
+        'is_variable'
+    ];
+
     public function items()
     {
         return $this->hasMany(Item::class);
@@ -14,5 +22,4 @@ class Cart extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
-    use HasFactory;
 }
