@@ -25,7 +25,7 @@
             </div>
             <div class="form-group">
                 <label for="amount">在庫数</label>
-                <input type="number" name="amount" id="amount" class="form-control" required>
+                <input type="number" name="amount" id="amount" class="form-control" value="0" required>
             </div>
             <div class="form-group">
                 <label for="images">商品画像</label>
