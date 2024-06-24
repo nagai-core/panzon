@@ -14,10 +14,11 @@ class StockSeeder extends Seeder
     {
         //
         DB::table('stocks')->insert([
-            ['item_id' => 1, 'amount' => 10],
-            ['item_id' => 2, 'amount' => 5],
-            ['item_id' => 3, 'amount' => 15],
-            ['item_id' => 4, 'amount' => 8],
+            ['item_id' => 1, 'amount' => 10,'created_at' => now(),],
+            ['item_id' => 2, 'amount' => 5,'created_at' => now(),],
+            ['item_id' => 3, 'amount' => 15,'created_at' => now(),],
+            ['item_id' => 4, 'amount' => 8,'created_at' => now(),],
+            ['item_id' => 1, 'amount' => 100,'created_at' => now(),],
         ]);
     }
 }
