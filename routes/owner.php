@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth:owners', 'verified'])->group(function () {
     Route::get('/', [ItemController::class, 'index'])->name("index");
+    Route::get('/create', [ItemController::class, 'create'])->name("create");
+    Route::post('/', [ItemController::class, 'store'])->name("store");
 });
 
 Route::get('/dashboard', function () {
