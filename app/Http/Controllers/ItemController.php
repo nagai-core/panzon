@@ -13,12 +13,8 @@ class ItemController extends Controller
     public function list(Request $request)
     {
         $category_id = $request->get('category_id');
-        $order = $request->get('order');
-
-        // Query items with optional category filter and sorting
-        $items = Item::filterByCategory($category_id)
-                    ->sortByOrder($order)
-                    ->get();
+        // パンをカテゴリと並び替えでソーツする
+        $items = Item::orderItems($category_id, $request->get('order'));
 
         // Get selected category name to show on top of page
         $selectedCategory = $category_id ? Category::find($category_id)->name : '全て';

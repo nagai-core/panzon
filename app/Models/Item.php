@@ -98,5 +98,11 @@ class Item extends Model
                 return $query->orderBy('created_at', 'desc');
         }
     }
+    public static function orderItems($category_id, $order)
+    {
+        return static::filterByCategory($category_id)
+                    ->sortByOrder($order)
+                    ->get();
+    }
     use HasFactory;
 }
