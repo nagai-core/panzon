@@ -19,6 +19,11 @@ class ItemController extends Controller
         return view("owner.index", compact("breads"));
     }
 
+    public function categoryShow($categoryName)
+    {
+        $breads = Item::itemsByCategoryName($categoryName);
+        return view('owner.index', compact('breads'));
+    }
     public function create()
     {
         $categories = Category::all();
