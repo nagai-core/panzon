@@ -72,5 +72,31 @@ class Item extends Model
             ->where('owner_id', $ownerId)
             ->get();
     }
+
+    // カテゴリソーツ
+    public function scopeFilterByCategory($query, $category_id)
+    {
+        if ($category_id) {
+            return $query->where('category_id', $category_id);
+        }
+        return $query;
+    }
+
+    // オーダソーツ
+    public function scopeSortByOrder($query, $order)
+    {
+        switch ($order) {
+            case 'price_asc':
+                return $query->orderBy('price', 'asc');
+            case 'price_desc':
+                return $query->orderBy('price', 'desc');
+            case 'date_desc':
+                return $query->orderBy('created_at', 'desc');
+            case 'date_asc':
+                return $query->orderBy('created_at', 'asc');
+            default:
+                return $query->orderBy('created_at', 'desc');
+        }
+    }
     use HasFactory;
 }
