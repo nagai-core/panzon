@@ -9,6 +9,12 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
+                    <form method="GET" action="{{ route('owner.index') }}">
+                        <div class="form-group">
+                            <input type="text" name="search" class="form-control" placeholder="検索キーワードを入力" value="{{ request('search') }}">
+                        </div>
+                        <button type="submit" class="btn btn-primary">検索</button>
+                    </form>
                     <table class="table">
                         <thead>
                             <tr>
