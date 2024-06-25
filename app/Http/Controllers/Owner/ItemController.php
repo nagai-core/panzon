@@ -89,18 +89,17 @@ class ItemController extends Controller
             'content' => $request->content,
             'is_variable' => $request->is_variable,
         ]);
-
+        //サムネイル
         if ($request->hasFile('image')) {
+            $bread->images()->where('is_variable', true)->delete();
             $image = $request->file('image');
             $ext = $image->guessExtension();
             $filename = "{$bread->id}_thumbnail.{$ext}";
             $path = $image->storeAs('images', $filename, 'public');
             $url = Storage::url($path);
-            $bread->images()->where('is_variable', true)->delete();
             $bread->images()->create(['url' => $url, 'is_variable' => true]);
         }
-
-        // 商品画像の保存
+        //商品画像
         if ($request->hasFile('images')) {
             $bread->images()->where('is_variable', false)->delete();
             foreach ($request->file('images') as $index => $image) {

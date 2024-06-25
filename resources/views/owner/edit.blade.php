@@ -29,10 +29,6 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="category_id">カテゴリー</label>
-                                <input type="text" name="category_id" class="form-control" value="{{ $bread->category_id }}">
-                            </div>
-                            <div class="form-group">
                                 <label for="price">値段</label>
                                 <input type="number" name="price" class="form-control" value="{{ $bread->price }}">
                             </div>

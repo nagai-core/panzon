@@ -38,13 +38,13 @@
                                     required>
                             </div>
                             <div class="form-group">
-                                <label for="image">サムネイル</label>
-                                <input type="file" name="image" id="image" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="images">商品画像</label>
-                                <input type="file" name="images[]" id="images" class="form-control" multiple>
-                            </div>
+                            <label for="image">サムネイル</label>
+                            <input type="file" name="image" id="image" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="images">商品画像</label>
+                            <input type="file" name="images[]" id="images" class="form-control" multiple>
+                        </div>
                             <button type="submit" class="btn btn-primary">登録</button>
                         </form>
                     </div>
