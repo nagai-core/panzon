@@ -82,10 +82,10 @@
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                <form id="editStockForm_{{ $bread->id }}" action="{{ route('owner.stock_update') }}" method="POST">
+                                                <form id="editStockForm_{{ $bread->id }}" action="{{ route('owner.stockUpdate') }}" method="POST">
                                                     @csrf
                                                     <div class="modal-body">
-                                                        <form id="editStockForm_{{ $bread->id }}" action="{{ route('owner.stock_update') }}" method="POST">
+                                                        <form id="editStockForm_{{ $bread->id }}" action="{{ route('owner.stockUpdate') }}" method="POST">
                                                             @csrf
                                                             <div class="form-group">
                                                                 <label for="stock_quantity">在庫数：</label>

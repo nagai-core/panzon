@@ -11,7 +11,7 @@ use App\Models\Owner;
 class StockController extends Controller
 {
     //
-    public function stock_update(Request $request)
+    public function stockUpdate(Request $request)
     {
         // Validate incoming request
         $request->validate([

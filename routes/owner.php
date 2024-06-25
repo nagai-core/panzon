@@ -13,7 +13,7 @@ Route::middleware(['auth:owners', 'verified'])->group(function () {
     Route::get('/create', [ItemController::class, 'create'])->name("create");
     Route::post('/', [ItemController::class, 'store'])->name("store");
 
-    Route::post('/', [StockController::class, 'stock_update'])->name('stock_update');
+    Route::post('/', [StockController::class, 'stockUpdate'])->name('stockUpdate');
 
 });
 
