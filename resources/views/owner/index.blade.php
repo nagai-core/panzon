@@ -54,6 +54,7 @@
                                     <td>{{ $bread->content }}</td>
                                     <td>{{ $bread->latestStock->amount }}</td>
                                     <td>
+                                        <a href="{{ route('owner.edit', $bread->id) }}" class="btn btn-secondary">編集</a>
                                     </td>
                                     <td>
 
