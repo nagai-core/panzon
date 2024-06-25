@@ -19,6 +19,9 @@ class StockSeeder extends Seeder
             ['item_id' => 3, 'amount' => 15,'created_at' => now(),],
             ['item_id' => 4, 'amount' => 8,'created_at' => now(),],
             ['item_id' => 1, 'amount' => 100,'created_at' => now(),],
+            ['item_id' => 5, 'amount' => 50,'created_at' => now(),],
+            ['item_id' => 6, 'amount' => 10,'created_at' => now(),],
+            ['item_id' => 6, 'amount' => 100,'created_at' => now(),],
         ]);
     }
 }

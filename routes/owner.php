@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Owner\CategoryController;
 use App\Http\Controllers\Owner\ItemController;
+use App\Http\Controllers\Owner\StockController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth:owners', 'verified'])->group(function () {
@@ -11,6 +12,9 @@ Route::middleware(['auth:owners', 'verified'])->group(function () {
     Route::post('/category/store', [CategoryController::class, 'store'])->name("category.store");
     Route::get('/create', [ItemController::class, 'create'])->name("create");
     Route::post('/', [ItemController::class, 'store'])->name("store");
+
+    Route::post('/', [StockController::class, 'stockUpdate'])->name('stockUpdate');
+
 });
 
 Route::get('/dashboard', function () {
