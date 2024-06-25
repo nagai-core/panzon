@@ -15,6 +15,8 @@ Route::middleware(['auth:owners', 'verified'])->group(function () {
 
     Route::post('/', [StockController::class, 'stockUpdate'])->name('stockUpdate');
 
+    Route::get('/{id}/edit', [ItemController::class, 'edit'])->name('edit');
+    Route::put('/{id}/edit', [ItemController::class, 'update'])->name('update');
 });
 
 Route::get('/dashboard', function () {

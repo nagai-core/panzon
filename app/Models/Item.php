@@ -14,10 +14,9 @@ class Item extends Model
         'owner_id',
         'item_name',
         'price',
-        'conext',
-        'is_viriable',
+        'content',
+        'is_variable',
     ];
-
     public function owner()
     {
         return $this->belongsTo(Owner::class);

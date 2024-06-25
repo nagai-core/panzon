@@ -53,17 +53,17 @@
                                     <td>{{ $bread->price }}</td>
                                     <td>{{ $bread->content }}</td>
                                     <td>{{ $bread->latestStock->amount }}</td>
-                                    <td>                                                                                                                
+                                    <td>
                                     </td>
                                     <td>
-                                        
+
                                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editStockModal_{{ $bread->id }}"
                                             data-bread-id="{{ $bread->id }}" data-stock-amount="{{ $bread->latestStock->amount }}">
                                             在庫
                                         </button>
 
-                                        
-                                    </td>                                    
+
+                                    </td>
                                     <td>
                                         @if($bread->is_variable)
                                             販売中
@@ -112,5 +112,5 @@
             </div>
         </div>
     </div>
- 
+
 </x-app-layout>
