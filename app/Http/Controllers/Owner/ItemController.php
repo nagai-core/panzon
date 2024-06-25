@@ -25,38 +25,29 @@ class ItemController extends Controller
         $breads = Item::itemsByCategoryName($categoryName);
         return view('owner.index', compact('breads'));
     }
+
     public function create()
     {
         $categories = Category::all();
         return view('owner.create', compact('categories'));
     }
-    // 商品登録処理
+
     public function store(Request $request)
     {
-        $item = new Item();
-        $item->category_id = $request->category_id;
-        $item->item_name = $request->item_name;
-        $item->price = $request->price;
-        $item->content = $request->content;
-        $item->owner_id = auth()->user()->id;
-        $item->is_variable = true;
-        $item->save();
+        $item = Item::creates($request->all(), auth()->user()->id);
+        return redirect()->route('owner.index');
+    }
 
-        $stock = new Stock();
-        $stock->item_id = $item->id;
-        $stock->amount = $request->amount; // amountのデフォルト値を設定
-        $stock->save();
+    public function edit($id)
+    {
+        $bread = Item::findOrFail($id);
+        $categories = Category::all();
+        return view('owner.edit', compact('bread', 'categories'));
+    }
 
-
-        if ($request->hasFile('images')) {
-            foreach ($request->file('images') as $index => $image) {
-                $ext = $image->guessExtension();
-                $filename = "{$item->id}_{$index}.{$ext}";
-                $path = $image->storeAs('images', $filename, 'public');
-                $url = Storage::url($path);
-                $item->images()->create(['url' => $url, 'is_variable' => true]);
-            }
-        }
+    public function update(Request $request, $id)
+    {
+        $bread = Item::updates($request->all(), $id);
         return redirect()->route('owner.index');
     }
 }

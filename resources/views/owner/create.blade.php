@@ -1,38 +1,55 @@
-<body>
-    <div class="container">
-        <h1>商品登録</h1>
-        <form action="{{ route('owner.store') }}" method="POST" enctype="multipart/form-data">
-            @csrf
-            <div class="form-group">
-                カテゴリー名：<select name="category_id" id="category_id" class="form-control" required>
-                    <option value="">選択してください</option>
-                    @foreach($categories as $category)
-                        <option value="{{ $category->id }}">{{ $category->name }}</option>
-                    @endforeach
-                </select>
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Dashboard') }}
+        </h2>
+    </x-slot>
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-gray-900">
+                    <div class="container">
+                        <h1>商品登録</h1>
+                        <form action="{{ route('owner.store') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <div class="form-group">
+                                カテゴリー名：<select name="category_id" id="category_id" class="form-control" required>
+                                    <option value="">選択してください</option>
+                                    @foreach ($categories as $category)
+                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="item_name">商品名</label>
+                                <input type="text" name="item_name" id="item_name" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="price">価格</label>
+                                <input type="number" name="price" id="price" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="content">商品詳細</label>
+                                <textarea name="content" id="content" class="form-control"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="amount">在庫数</label>
+                                <input type="number" name="amount" id="amount" class="form-control" value="0"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                            <label for="image">サムネイル</label>
+                            <input type="file" name="image" id="image" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="images">商品画像</label>
+                            <input type="file" name="images[]" id="images" class="form-control" multiple>
+                        </div>
+                            <button type="submit" class="btn btn-primary">登録</button>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="item_name">商品名</label>
-                <input type="text" name="item_name" id="item_name" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label for="price">価格</label>
-                <input type="number" name="price" id="price" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label for="content">商品詳細</label>
-                <textarea name="content" id="content" class="form-control"></textarea>
-            </div>
-            <div class="form-group">
-                <label for="amount">在庫数</label>
-                <input type="number" name="amount" id="amount" class="form-control" value="0" required>
-            </div>
-            <div class="form-group">
-                <label for="images">商品画像</label>
-                <input type="file" name="images[]" id="images" class="form-control" multiple>
-            </div>
-            <button type="submit" class="btn btn-primary">登録</button>
-        </form>
+        </div>
     </div>
-</body>
-
+</x-app-layout>
