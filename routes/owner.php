@@ -11,7 +11,7 @@ Route::middleware(['auth:owners', 'verified'])->group(function () {
     Route::get('/category/{categoryname}', [ItemController::class, 'categoryShow'])->name("category.show");
     Route::post('/category/store', [CategoryController::class, 'store'])->name("category.store");
     Route::get('/create', [ItemController::class, 'create'])->name("create");
-    Route::post('/', [ItemController::class, 'store'])->name("store");
+    Route::post('/store', [ItemController::class, 'store'])->name("store");
 
     Route::post('/', [StockController::class, 'stockUpdate'])->name('stockUpdate');
 
