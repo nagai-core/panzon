@@ -19,6 +19,9 @@ Route::middleware('auth:users')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::post('/item/{itemId}', [ItemController::class, 'store'])->name('item.store');
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+    Route::post('/cart/minus/{cartId}', [CartController::class, 'minusUpdate'])->name('cart.minusUpdate');
+    Route::post('/cart/plus/{cartId}', [CartController::class, 'plusUpdate'])->name('cart.plusUpdate');
+    Route::post('/cart/{cartId}', [CartController::class, 'destroy'])->name('cart.destroy');
 });
 
 //パン一覧と詳細は/item/listルート

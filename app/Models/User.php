@@ -58,4 +58,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(PurchaseHistory::class);
     }
+    public function Item() {
+        return $this->belongsToMany(Item::class, 'carts')
+        ->withPivot('amount', 'is_variable');;
+    }
 }
