@@ -22,7 +22,7 @@
                                 <select name="category_id" id="category_id" class="form-control" required>
                                     <option value="">選択してください</option>
                                     @foreach ($categories as $category)
-                                        <option value="{{ $bread->category_id }}" {{ $bread->category_id === $category->id  ? " selected" : ""}}>
+                                        <option value="{{ $category->id }}" {{ $bread->category_id === $category->id  ? "selected" : "" }}>
                                             {{ $category->name }}
                                         </option>
                                     @endforeach
