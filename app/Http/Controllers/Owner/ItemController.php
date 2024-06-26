@@ -50,4 +50,13 @@ class ItemController extends Controller
         $bread = Item::updates($request->all(), $id);
         return redirect()->route('owner.index');
     }
+
+    public function status($id)
+{
+    $item = Item::findOrFail($id);
+    $item->is_variable = $item->is_variable ? 0 : 1;
+    $item->save();
+
+    return redirect()->route('owner.index');
+}
 }

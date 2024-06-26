@@ -19,6 +19,7 @@ Route::middleware(['auth:owners', 'verified'])->group(function () {
 
     Route::get('/{id}/edit', [ItemController::class, 'edit'])->name('edit');
     Route::put('/{id}/edit', [ItemController::class, 'update'])->name('update');
+    Route::put('/{id}/status', [ItemController::class, 'status'])->name('status');
     Route::get('/owner-notification', [MailController::class, 'ownerNotification'])->name('ownerNotification');
 });
 

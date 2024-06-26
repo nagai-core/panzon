@@ -40,6 +40,7 @@
                                 <th>編集</th>
                                 <th>在庫</th>
                                 <th>ステータス</th>
+                                <th>表示</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -74,6 +75,13 @@
                                         @else
                                             販売停止
                                         @endif
+                                    </td>
+                                    <td>
+                                        <form action="{{ route('owner.status', $bread->id) }}" method="POST">
+                                            @csrf
+                                            @method('PUT')
+                                            <button type="submit" class="btn btn-warning">販売中/停止</button>
+                                        </form>
                                     </td>
                                     <!-- Modal for each bread item -->
                                 <div class="modal fade" id="editStockModal_{{ $bread->id }}" tabindex="-1" role="dialog" aria-labelledby="editStockModalLabel" aria-hidden="true">
