@@ -17,6 +17,11 @@ class Item extends Model
         'content',
         'is_variable',
     ];
+
+    public function user() {
+        return $this->belongsToMany(User::class, 'carts')
+        ->withPivot('amount', 'is_variable');
+    }
     public function owner()
     {
         return $this->belongsTo(Owner::class);
@@ -30,9 +35,9 @@ class Item extends Model
     {
         return $this->belongsTo(Cart::class);
     }
-    public function stock()
+    public function stocks()
     {
-        return $this->hasMany(Stock::class);
+        return $this->hasMany(Stock::class, 'item_id');
     }
     public function itemorder()
     {
@@ -40,7 +45,7 @@ class Item extends Model
     }
     public function images()
     {
-        return $this->hasMany(Image::class);
+        return $this->hasMany(Image::class,  'item_id');
     }
     // 最新のStockとのリレーション
     public function latestStock(): HasOne
