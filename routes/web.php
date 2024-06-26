@@ -4,7 +4,9 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ItemController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MailController;
 
+Route::get('/purchase-completed', [MailController::class, 'purchaseCompleted'])->name('purchaseCompleted');
 Route::get('/', function () {
     return view('welcome');
 });

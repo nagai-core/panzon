@@ -4,6 +4,8 @@ use App\Http\Controllers\Owner\CategoryController;
 use App\Http\Controllers\Owner\ItemController;
 use App\Http\Controllers\Owner\StockController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MailController;
+
 
 Route::middleware(['auth:owners', 'verified'])->group(function () {
     Route::get('/', [ItemController::class, 'index'])->name("index");
@@ -17,6 +19,7 @@ Route::middleware(['auth:owners', 'verified'])->group(function () {
 
     Route::get('/{id}/edit', [ItemController::class, 'edit'])->name('edit');
     Route::put('/{id}/edit', [ItemController::class, 'update'])->name('update');
+    Route::get('/owner-notification', [MailController::class, 'ownerNotification'])->name('ownerNotification');
 });
 
 Route::get('/dashboard', function () {
