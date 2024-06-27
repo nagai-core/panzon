@@ -75,7 +75,12 @@ nav {
         }
         .info {
             width: 80%;
+            height: 100px;
             margin: 0 auto;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
             .price {
                 display: flex;
                 svg {
@@ -103,6 +108,17 @@ nav {
                     svg {
                         fill: white;
                     }
+                }
+            }
+            .favorite-button {
+                position: absolute;
+                right: 0;
+                top: 30px;
+                svg {
+                    width: 28px;
+                }
+                .selected {
+                    fill: red;
                 }
             }
         }

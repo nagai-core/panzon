@@ -73,7 +73,12 @@ nav p:hover {
 }
 .main-wrapper .content .info {
   width: 80%;
+  height: 100px;
   margin: 0 auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .main-wrapper .content .info .price {
   display: flex;
@@ -103,4 +108,15 @@ nav p:hover {
 }
 .main-wrapper .content .info .purchase-button:hover svg {
   fill: white;
+}
+.main-wrapper .content .info .favorite-button {
+  position: absolute;
+  right: 0;
+  top: 30px;
+}
+.main-wrapper .content .info .favorite-button svg {
+  width: 28px;
+}
+.main-wrapper .content .info .favorite-button .selected {
+  fill: red;
 }/*# sourceMappingURL=list.css.map */
