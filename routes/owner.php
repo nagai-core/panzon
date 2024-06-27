@@ -5,6 +5,7 @@ use App\Http\Controllers\Owner\ItemController;
 use App\Http\Controllers\Owner\StockController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\Owner\SalesAnalysisController;
 
 
 Route::middleware(['auth:owners', 'verified'])->group(function () {
@@ -21,6 +22,8 @@ Route::middleware(['auth:owners', 'verified'])->group(function () {
     Route::put('/{id}/edit', [ItemController::class, 'update'])->name('update');
     Route::put('/{id}/status', [ItemController::class, 'status'])->name('status');
     Route::get('/owner-notification', [MailController::class, 'ownerNotification'])->name('ownerNotification');
+
+    Route::get('/analysis', [SalesAnalysisController::class, 'index'])->name('analysis');
 });
 
 Route::get('/dashboard', function () {
