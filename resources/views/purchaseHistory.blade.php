@@ -10,7 +10,7 @@
             @foreach ($purchaseHistories as $history)
                 <li>
                     <strong>ID:</strong> {{ $id++ }} <br>
-                    <strong>Created At:</strong> {{ $history->created_at }} <br>
+                    <strong>購入日:</strong> {{ $history->created_at }} <br>
                     <strong>購入情報:</strong>
                     <ul>
                         @foreach ($history->itemOrders as $itemOrder)
