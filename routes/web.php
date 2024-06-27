@@ -8,6 +8,7 @@ use App\Http\Controllers\MailController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\StripeController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\PurchaseHistoryController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -33,8 +34,12 @@ Route::middleware('auth:users')->group(function () {
         //パン一覧と詳細は/item/listルート
     Route::get('/list', [ItemController::class, 'list'])->name('item.list');
     Route::get('/item/{itemId}', [ItemController::class, 'show'])->name('item.show');
-
+    //購入履歴
+    Route::get('/purchase-history', [PurchaseHistoryController::class, 'index'])->name('purchaseHistory.index');
+    Route::get('/purchase-store', [PurchaseHistoryController::class, 'store'])->name('purchaseHistory.store');
+        
 });
+
 //Stripe
 Route::get('/stripe', [StripeController::class, 'checkout'])->name('checkout');
 Route::post('/stripe', [StripeController::class, 'checkout'])->name('checkout');

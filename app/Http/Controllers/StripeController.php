@@ -71,7 +71,8 @@ class StripeController extends Controller
             $item->save();
             //dd($item->lateststock->amount);
         }
-        return redirect()->route('purchaseCompleted');
+        return redirect()->route('purchaseHistory.store');
+
     }
 
     public function cancel(){

@@ -11,7 +11,7 @@ class PurchaseHistory extends Model
     {
         return $this->belongsTo(User::class);
     }
-    public function itemOrder(){
+    public function itemOrders(){
         return $this->hasMany(ItemOrder::class);
     }
     use HasFactory;

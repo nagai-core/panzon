@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('purchase_histories', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->foreignID('address_id');
+            $table->foreignId('address_id')->nullable()->default(null);
             $table->timestamps();
         });
     }
