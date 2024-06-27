@@ -20,7 +20,7 @@
             @endforeach
         </div>
     </div>
-    
+
     <!-- Order Dropdown -->
     <div class="dropdown">
         <button onclick="toggleDropdown('orderDropdown')" class="dropbtn">並び替え ▼</button>
@@ -56,6 +56,20 @@
                 <div class="purchase-button">
                     <a href="{{ route('item.show', ['itemId' => $item->id]) }}" class="btn btn-primary">購入する</a>
                 </div>
+                <div class="favorite-button">
+                    @if (in_array($item->id, $favorites))
+                        <form action="{{ route('favorite.destroy', $item->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit">お気に入りから削除</button>
+                        </form>
+                    @else
+                        <form action="{{ route('favorite.store', $item->id) }}" method="POST">
+                            @csrf
+                            <button type="submit">お気に入りに追加</button>
+                        </form>
+                    @endif
+                </div>
             </div>
             @endif
         @endforeach
@@ -82,7 +96,7 @@
         font-size: 16px;
         border: none;
         cursor: pointer;
-        width: 120px; 
+        width: 120px;
     }
 
     /* Dropdown content (hidden by default) */
