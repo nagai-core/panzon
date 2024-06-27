@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('item_id');
             $table->foreignId('purchase_history_id');
+            $table->integer('price');
             $table->integer('amount');
             $table->timestamps();
         });
