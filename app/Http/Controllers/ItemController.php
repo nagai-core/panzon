@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Item;
 use App\Models\Category;
+use App\Models\Favorite;
 class ItemController extends Controller
 {
     //商品一覧
@@ -28,7 +29,9 @@ class ItemController extends Controller
 
         // Load all categories for the dropdown
         $categories = Category::all();
-        return view('item.list', compact('items', 'categories', 'selectedCategory','search'));
+
+        $favorites = Auth::user()->favorites->pluck('item_id')->toArray();
+        return view('item.list', compact('items', 'categories', 'selectedCategory','search','favorites'));
     }
     public function show($itemId) {
         $item = Item::with(['images', 'latestStock'])->findOrFail($itemId);
@@ -44,6 +47,35 @@ class ItemController extends Controller
             'is_variable' => true
         ]);
         return redirect()->route('cart.index');
+    }
+
+
+    public function favorite_store($itemId)
+    {
+        $favorite = new Favorite();
+        $favorite->user_id = Auth::id();
+        $favorite->item_id = $itemId;
+        $favorite->save();
+
+        return redirect()->back();
+    }
+
+    public function favorite_destroy($itemId)
+    {
+        $favorite = Favorite::where('user_id', Auth::id())
+        ->where('item_id', $itemId);
+
+        if ($favorite) {
+            $favorite->delete();
+        }
+
+        return redirect()->back();
+    }
+
+    public function favorite()
+    {
+        $favorites = Auth::user()->favoriteItems;
+        return view('item.favorite', compact('favorites'));
     }
 
 }

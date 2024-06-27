@@ -186,6 +186,7 @@ class Item extends Model
             }
         }
     }
+
     //在庫更新処理
     public static function stockAmount($item,$amount){
         $stockAmount = $item->latestStock->amount;
@@ -197,6 +198,12 @@ class Item extends Model
         $stock->save();
         //dd($item->latestStock->amount);
         return $item;
+    }
+
+
+    public function favoriteUsers()
+    {
+        return $this->belongsToMany(User::class, 'favorites');
     }
 
 
