@@ -12,6 +12,12 @@ use App\Models\Category;
 use App\Models\Favorite;
 class ItemController extends Controller
 {
+    public function index() {
+        $latestBreads = Item::with('images')->orderBy('created_at', 'desc')->take(4)->get();
+        $categories = Category::all();
+        // dd($latestBreads);
+        return view('index', compact('latestBreads', 'categories'));
+    }
     //商品一覧
     public function list(Request $request)
     {

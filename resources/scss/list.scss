@@ -1,0 +1,110 @@
+nav {
+    width: 20%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 5px;
+    p {
+        &:hover {
+            color: #D39D78;
+        }
+    }
+}
+
+
+.modalBtn
+{
+    width: 200px;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 15px;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.183);
+}
+
+.modalW {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.modalOrder {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.modalOrderBtn {
+    width: 200px;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 15px;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.183);
+}
+
+.main-wrapper {
+    width: 98%;
+    margin: 0 auto;
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 50px;
+    row-gap: 50px;
+    margin-bottom: 30px;
+    .content {
+        width: 20%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0px 0px 10px 2px #77777721;
+        padding: 5px;
+        border-radius: 5px;
+        .images {
+            width: 98%;
+            margin: 0 auto;
+            border-radius: 5px;
+            img {
+                margin: 0 auto;
+                width: 80%;
+                max-height: 140px;
+                border-radius: 5px;
+            }
+        }
+        .info {
+            width: 80%;
+            margin: 0 auto;
+            .price {
+                display: flex;
+                svg {
+                    width: 14px;
+                }
+            }
+            .purchase-button {
+                padding: 5px;
+                width: 100%;
+                border: 1px solid rgba(156, 156, 156, 0.329);
+                border-radius: 5px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                a {
+                    display: block;
+                    &:hover {
+                        color: white;
+                        border: none;
+                    }
+                }
+                &:hover {
+                    background-color: #E9C0A0;
+                    color: white;
+                    svg {
+                        fill: white;
+                    }
+                }
+            }
+        }
+    }
+}

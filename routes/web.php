@@ -10,9 +10,12 @@ use App\Http\Controllers\StripeController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\PurchaseHistoryController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/purchase-completed', [MailController::class, 'purchaseCompleted'])->name('purchaseCompleted');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', [ItemController::class, 'index'])->name('item.index');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -37,7 +40,7 @@ Route::middleware('auth:users')->group(function () {
     //購入履歴
     Route::get('/purchase-history', [PurchaseHistoryController::class, 'index'])->name('purchaseHistory.index');
     Route::get('/purchase-store', [PurchaseHistoryController::class, 'store'])->name('purchaseHistory.store');
-        
+
 });
 
 //Stripe
