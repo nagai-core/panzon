@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\TestMail;
@@ -12,35 +14,32 @@ use App\Jobs\SendOrderNotJob;
 use App\Models\User;
 use App\Models\Owner;
 use App\Models\Item;
+use App\Models\Cart;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 class MailController extends Controller
 {
-    /*
-    public function index(){
-        $email = Auth::user()->email;
-        //dd($email);
+    public function purchaseCompleted(Request $request)
+    {
+        
+        $cartItems = session('cartItems');
+        $user =Auth::user();
+        $email = $user->email;
+        $address = $user->useraddress->first()->address ?? null;
         Log::channel('sendmail')->info('Sending email to: ' . $email);
-        SendMailJob::dispatch($email);
-        echo('送信しました');
-    }*/
-
-    public function purchaseCompleted(){
-        $email = Auth::user()->email;
+        SendMailJob::dispatch($email, $cartItems,$address);
+        foreach ($cartItems as $cartItem){
+            $item = $cartItem ->item;
+            $amount = $cartItem -> amount;
+            $owner = $item->owner;
+            $ownerEmail = $owner->email;
+            SendOrderNotJob::dispatch($ownerEmail,$item,$amount);
+            Log::channel('sendmail')->info('Sending email to: ' . $email);
+        }       
         //dd($email);
-        Log::channel('sendmail')->info('Sending email to: ' . $email);
-        SendMailJob::dispatch($email);
-        echo('送信しました');
+        
+        
+        //echo('送信しました');
+        return redirect()->route('item.list');
     }
-    public function ownerNotification(){
-        $item = Item::latest()->first();
-        $owner_id = $item->owner_id;
-        $owner = Owner::findOrFail($owner_id);
-        $email = $owner->email;
-        //dd($email);
-        Log::channel('sendmail')->info('Sending email to: ' . $email);
-        SendOrderNotJob::dispatch($email);
-        echo('送信しました');
-    }
-    
 }

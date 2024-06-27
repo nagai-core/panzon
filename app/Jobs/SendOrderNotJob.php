@@ -14,14 +14,16 @@ class SendOrderNotJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    protected $email;
+    protected $ownerEmail,$item,$amount;
 
     /**
      * Create a new job instance.
      */
-    public function __construct($email)
+    public function __construct($ownerEmail,$item,$amount)
     {
-        $this->email = $email;
+        $this->ownerEmail = $ownerEmail;
+        $this->item = $item;
+        $this->amount = $amount;
     }
 
     /**
@@ -29,6 +31,6 @@ class SendOrderNotJob implements ShouldQueue
      */
     public function handle()
     {
-        Mail::to($this->email)->send(new OwnerNotification());
+        Mail::to($this->ownerEmail)->send(new OwnerNotification($this->item,$this->amount));
     }
 }

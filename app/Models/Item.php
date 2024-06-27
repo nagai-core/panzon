@@ -186,6 +186,18 @@ class Item extends Model
             }
         }
     }
+    //在庫更新処理
+    public static function stockAmount($item,$amount){
+        $stockAmount = $item->latestStock->amount;
+        //dd($stockAmount);
+        $newStockAmount = $stockAmount - $amount;
+        $stock = new Stock();
+        $stock->item_id = $item->id;
+        $stock->amount = $newStockAmount;
+        $stock->save();
+        //dd($item->latestStock->amount);
+        return $item;
+    }
 
 
 
