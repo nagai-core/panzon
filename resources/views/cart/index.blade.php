@@ -21,8 +21,27 @@
     <form action="{{ route('cart.destroy', ['cartId' => $cart->id]) }}" method="post">
         @csrf
         <button>削除する</button>
-    </form>
+    </form>  
 @else
 <p>売り切れ</p>
 @endif
 @endforeach
+<form action="{{ route('checkout') }}" method="POST">
+    @csrf
+
+    @if ($carts ->isEmpty())
+        <p>カートは空です。</p>
+    @else
+        <label for="card-element">
+            カードお支払い
+        </label>
+        <div id="card-element">
+            <!-- A Stripe Element will be inserted here. -->
+        </div>
+
+        <!-- Used to display form errors. -->
+        <div id="card-errors" role="alert"></div>
+
+        <button type="submit">決済手続</button>
+    @endif
+</form>

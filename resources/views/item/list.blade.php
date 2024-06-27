@@ -54,7 +54,7 @@
                     @endforeach
                 </div>
                 <div class="purchase-button">
-                    <a href="{{ route('item.purchase', ['item_id' => $item->id]) }}" class="btn btn-primary">購入する</a>
+                    <a href="{{ route('item.show', ['itemId' => $item->id]) }}" class="btn btn-primary">購入する</a>
                 </div>
             </div>
             @endif

@@ -30,7 +30,6 @@ class ItemController extends Controller
         $categories = Category::all();
         return view('item.list', compact('items', 'categories', 'selectedCategory','search'));
     }
-
     public function show($itemId) {
         $item = Item::with(['images', 'latestStock'])->findOrFail($itemId);
         return view('item.show', compact('item'));

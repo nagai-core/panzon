@@ -16,33 +16,31 @@ class OwnerNotification extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public $item,$amount;
+
+    /**
+     * Create a new message instance.
+     *
+     * 
+     */
+    public function __construct($item,$amount)
     {
-        //
+        $this->item = $item;
+        $this->amount = $amount;
     }
 
     /**
-     * Get the message envelope.
-     */
-    public function envelope(): Envelope
-        {
-            return new Envelope( subject: '購入された商品があります。',);
-        }
-
-    public function content(): Content
-        {
-            return new Content(
-                view: 'mail.ownerNotification',
-            );
-        }
-
-    /**
-     * Get the attachments for the message.
+     * Build the message.
      *
-     * @return array<int, \Illuminate\Mail\Mailables\Attachment>
+     * @return $this
      */
-    public function attachments(): array
+    public function build()
     {
-        return [];
+        
+        return $this->subject('購入のお知らせ')
+                    ->view('mail.ownerNotification', [
+                        'item' => $this->item,
+                        'amount' => $this->amount,
+                    ]);
     }
 }

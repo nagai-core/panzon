@@ -35,6 +35,7 @@ class ItemController extends Controller
     public function store(Request $request)
     {
         $item = Item::creates($request->all(), auth()->user()->id);
+        
         return redirect()->route('owner.index');
     }
 

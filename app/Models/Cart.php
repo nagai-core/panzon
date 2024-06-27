@@ -84,6 +84,16 @@ class Cart extends Model
 
         return $carts;
     }
+
+    public static function getCartItems($userId)
+    {
+        $cartItems = Cart::where('user_id', $userId)
+                        ->where('is_variable', 1) // Filter where is_variable is 1
+                        ->with('item') // Eager load the item relationship
+                        ->get();
+
+        return $cartItems;
+    }
 }
 
 

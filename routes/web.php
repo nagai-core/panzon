@@ -5,8 +5,9 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ItemController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\StripeController;
+use App\Http\Controllers\CheckoutController;
 
-Route::get('/purchase-completed', [MailController::class, 'purchaseCompleted'])->name('purchaseCompleted');
 Route::get('/', function () {
     return view('welcome');
 });
@@ -24,11 +25,17 @@ Route::middleware('auth:users')->group(function () {
     Route::post('/cart/minus/{cartId}', [CartController::class, 'minusUpdate'])->name('cart.minusUpdate');
     Route::post('/cart/plus/{cartId}', [CartController::class, 'plusUpdate'])->name('cart.plusUpdate');
     Route::post('/cart/{cartId}', [CartController::class, 'destroy'])->name('cart.destroy');
+        //パン一覧と詳細は/item/listルート
+    Route::get('/list', [ItemController::class, 'list'])->name('item.list');
+    Route::get('/item/{itemId}', [ItemController::class, 'show'])->name('item.show');
+    
 });
+//Stripe
+Route::get('/stripe', [StripeController::class, 'checkout'])->name('checkout');
+Route::post('/stripe', [StripeController::class, 'checkout'])->name('checkout');
+Route::get('/stripe/success', [StripeController::class, 'success'])->name('success');
+Route::get('/stripe/cancel', [StripeController::class, 'cancel'])->name('cancel');
+    //メール送信    
+Route::get('/purchase-completed', [MailController::class, 'purchaseCompleted'])->name('purchaseCompleted');
 
-//パン一覧と詳細は/item/listルート
-Route::get('/list', [ItemController::class, 'list'])->name('item.list');
-Route::get('/item/{itemId}', [ItemController::class, 'show'])->name('item.show');
-//パン購入
-Route::get('/purchase', [ItemController::class, 'purchase'])->name('item.purchase');
 require __DIR__.'/auth.php';
