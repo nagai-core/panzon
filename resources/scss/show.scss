@@ -107,29 +107,56 @@ main {
             }
         }
 
+        // .swiper-container {
+        //     flex: 2;
+        //     padding: 20px;
+        //     background: #fff;
+        //     border-radius: 8px;
+        //     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+        //     .swiper-slide {
+        //         display: flex;
+        //         justify-content: center;
+        //         align-items: center;
+
+        //         img {
+        //             max-width: 100%;
+        //             height: auto;
+        //             border-radius: 8px;
+        //             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        //         }
+        //     }
+
+        //     .swiper-pagination {
+        //         margin-top: 10px;
+        //     }
+        // }
         .swiper-container {
-            flex: 2;
-            padding: 20px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 50%;
+            margin: auto;
+            position: relative;
+            overflow: hidden;
+        }
 
-            .swiper-slide {
-                display: flex;
-                justify-content: center;
-                align-items: center;
+        .swiper-wrapper {
+            width: 50%;
+            transition: transform 0.3s ease;
+            display: flex;
+        }
 
-                img {
-                    max-width: 100%;
-                    height: auto;
-                    border-radius: 8px;
-                    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-                }
-            }
+        .swiper-slide {
+            flex-shrink: 0;
+            width: 50%;
+            overflow: hidden;
+            position: relative;
+        }
 
-            .swiper-pagination {
-                margin-top: 10px;
-            }
+        .swiper-slide img {
+            width: 100%;
+            max-width: 100%; /* 画像が親要素を超えないようにする */
+            max-height: 100%; /* 画像が親要素を超えないようにする */
+            height: auto;
+            display: block;
         }
     }
 

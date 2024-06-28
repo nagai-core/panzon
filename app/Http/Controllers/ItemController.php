@@ -41,7 +41,11 @@ class ItemController extends Controller
         // Load all categories for the dropdown
         $categories = Category::all();
 
-        $favorites = Auth::user()->favorites->pluck('item_id')->toArray();
+        if(Auth::id()) {
+            $favorites = Auth::user()->favorites->pluck('item_id')->toArray();
+        }else {
+            $favorites = [];
+        }
         return view('item.list', compact('items', 'categories', 'selectedCategory','search','favorites'));
     }
     public function show($itemId) {

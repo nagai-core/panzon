@@ -19,7 +19,6 @@ main {
     //         }
     //     }
     // }
-
     .cart {
         width: 40%;
         background-color: #fff;
@@ -110,4 +109,21 @@ main {
             border-radius: 5px;
         }
       }
+
+      .back {
+        // text-align: center;
+        // display: flex;
+        // justify-content: center;
+        // background-color: red;
+        // background-color: red;
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        a {
+            padding: 10px 30px;
+            border-radius: 5px;
+            border: 1px solid rgb(215, 211, 211);
+        }
+    }
 }

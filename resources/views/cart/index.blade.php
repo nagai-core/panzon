@@ -60,6 +60,10 @@
                 <button type="submit">決済手続へ</button>
             @endif
         </form>
+        <div class="back">
+            <a href="{{route('item.list')}}">他の商品も見る</a>
+        </div>
+
     </main>
 </body>
 </html>

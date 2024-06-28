@@ -62,7 +62,8 @@ class Item extends Model
     {
         $ownerId = Auth::id();
         $query = self::with(['category', 'latestStock', 'variableImages'])
-            ->where('owner_id', $ownerId);
+            ->where('owner_id', $ownerId)
+            ->orderBy('id', 'desc');
 
         if ($search) {
             $query->where('item_name', 'LIKE', '%' . $search . '%');
@@ -125,6 +126,7 @@ class Item extends Model
                     ->excludeNonVariableItems()
                     ->sortByOrder($order)
                     ->searchItem($search)
+                    // ->excludeNonVariableItems()
                     ->get();
     }
     public static function creates($data, $ownerId)
