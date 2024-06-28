@@ -41,7 +41,9 @@ Route::middleware('auth:users')->group(function () {
     //購入履歴
     Route::get('/purchase-history', [PurchaseHistoryController::class, 'index'])->name('purchaseHistory.index');
     Route::get('/purchase-store', [PurchaseHistoryController::class, 'store'])->name('purchaseHistory.store');
-    // Route::match(['get', 'post'], [CompleteController::class, 'index'])->name('buy.complete');
+    Route::get('/mypage', function() {
+        return view('user.mypage');
+    })->name('user.mypage');
 });
 
 //Stripe
