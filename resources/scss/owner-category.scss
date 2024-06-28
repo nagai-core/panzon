@@ -1,0 +1,47 @@
+.content-wrapper {
+    right: 0;
+    width: 85%;
+    position: fixed;
+    right: 0;
+    top: 10%;
+    overflow: scroll;
+    height: 90%;
+    ul {
+        width: 95%;
+        margin: 0 auto;
+        margin-top: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        li {
+            width: 30%;
+            box-shadow: 0px 0px 10px 2px #77777723;
+            border-radius: 5px;
+            padding: 10px;
+            text-align: center;
+            margin: 5px 0;
+            a {
+                display: block;
+                position: relative;
+                svg {
+                    position: absolute;
+                    right: 10px;
+                    top: 0px;
+                }
+            }
+        }
+    }
+    .button {
+        width: 90%;
+        margin: 10px auto;
+        display: flex;
+        justify-content: center;
+        button {
+            background-color: #A87E5D;
+            padding: 20px 200px;
+            border-radius: 5px;
+            color: white;
+            position: relative;
+        }
+    }
+}

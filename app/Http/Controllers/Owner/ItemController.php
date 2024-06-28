@@ -16,20 +16,28 @@ class ItemController extends Controller
 {
     public function index(Request $request)
     {
+        $ownerId = Auth::id();
+        $owner = Owner::find($ownerId);
+        $categories = Category::all();
         $breads = Item::itemsOwner($request->search);
-        return view("owner.index", compact("breads"));
+        return view("owner.index", compact("breads", "owner", "categories"));
     }
 
     public function categoryShow($categoryName)
     {
+        $ownerId = Auth::id();
+        $owner = Owner::find($ownerId);
+        $categories = Category::all();
         $breads = Item::itemsByCategoryName($categoryName);
-        return view('owner.index', compact('breads'));
+        return view('owner.index', compact('breads', 'owner', 'categories'));
     }
 
     public function create()
     {
+        $ownerId = Auth::id();
+        $owner = Owner::find($ownerId);
         $categories = Category::all();
-        return view('owner.create', compact('categories'));
+        return view('owner.create', compact('categories', 'owner'));
     }
 
     public function store(Request $request)
