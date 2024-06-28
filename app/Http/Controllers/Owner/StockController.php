@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Item;
 use App\Models\Category;
 use App\Models\Owner;
+use Illuminate\Support\Facades\Auth;
 
 class StockController extends Controller
 {
@@ -24,8 +25,11 @@ class StockController extends Controller
             $item = Item::findOrFail($request->bread_id);
             $item->latestStock->amount = $request->stock_quantity;
             $item->latestStock->save();
-            $breads = Item::itemsOwner(); 
-            return view('owner.index', compact('breads'));
+            $breads = Item::itemsOwner();
+            $ownerId = Auth::id();
+            $owner = Owner::find($ownerId);
+            $categories = Category::all();
+            return view('owner.index', compact('breads', 'owner', 'categories'));
         } catch (\Exception $e) {
             return redirect()->back()->with('error', '在庫数の更新中にエラーが発生しました。');
         }
