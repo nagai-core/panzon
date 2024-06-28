@@ -45,7 +45,7 @@ Route::get('/stripe', [StripeController::class, 'checkout'])->name('checkout');
 Route::post('/stripe', [StripeController::class, 'checkout'])->name('checkout');
 Route::get('/stripe/success', [StripeController::class, 'success'])->name('success');
 Route::get('/stripe/cancel', [StripeController::class, 'cancel'])->name('cancel');
-    //メール送信
+//メール送信
 Route::get('/purchase-completed', [MailController::class, 'purchaseCompleted'])->name('purchaseCompleted');
 
 require __DIR__.'/auth.php';
