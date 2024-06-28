@@ -39,7 +39,7 @@ class OwnerAddressSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'owner_id' => 2,
+                'owner_id' => 4,
                 'store_name' => 'Store D',
                 'address' => '北海道札幌市中央区4-4',
                 'post_code' => '444-5555',
@@ -47,7 +47,7 @@ class OwnerAddressSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'owner_id' => 2,
+                'owner_id' => 5,
                 'store_name' => 'Store E',
                 'address' => '福岡県福岡市博多区5-5',
                 'post_code' => '555-6666',

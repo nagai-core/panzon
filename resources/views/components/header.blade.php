@@ -1,12 +1,12 @@
 <header>
     <div class="left-wrapper">
-        <h1><a href="">LOGO</a></h1>
-        <p><a href="">cart</a></p>
+        <h1><a href="/">PANZON</a></h1>
+        <p><a href="{{route('cart.index')}}">cart</a></p>
         @if(Auth::check())
         <p><a href="">{{Auth::user()->name}}</a></p>
         @else
         <p><a href="/login">login</a></p>
-        <p><a href="register">register</a></p>
+        <p><a href="/register">register</a></p>
         @endif
     </div>
     <form action="{{route('item.list')}}" method="get">

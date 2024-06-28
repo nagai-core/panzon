@@ -15,8 +15,13 @@ class ItemController extends Controller
     public function index() {
         $latestBreads = Item::with('images')->orderBy('created_at', 'desc')->take(4)->get();
         $categories = Category::all();
+        if(Auth::id()) {
+            $favorites = Auth::user()->favorites->pluck('item_id')->toArray();
+        }else {
+            $favorites = [];
+        }
         // dd($latestBreads);
-        return view('index', compact('latestBreads', 'categories'));
+        return view('index', compact('latestBreads', 'categories','favorites'));
     }
     //商品一覧
     public function list(Request $request)

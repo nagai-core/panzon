@@ -13,7 +13,6 @@ header .left-wrapper {
   width: 20%;
   display: flex;
   justify-content: space-between;
-  background-color: red;
   align-items: center;
 }
 header .left-wrapper p {
@@ -24,6 +23,7 @@ header h1 {
   margin-left: 2%;
   font-size: 24px;
   font-weight: 700;
+  color: white;
 }
 header form {
   display: flex;

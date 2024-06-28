@@ -1,0 +1,176 @@
+main {
+  padding-top: 0px;
+}
+main .main {
+  width: 100%;
+  position: relative;
+}
+main .main p {
+  position: absolute;
+  color: white;
+  bottom: 200px;
+  z-index: 100;
+  font-size: 50px;
+  font-weight: 600;
+  left: 20px;
+}
+main .main img {
+  width: 100%;
+}
+main .title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 100px;
+}
+main .content-wrapper {
+  width: 98%;
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 200px;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 50px;
+  row-gap: 50px;
+  margin-bottom: 30px;
+}
+main .content-wrapper .content {
+  width: 20%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 0px 10px 2px rgba(119, 119, 119, 0.1294117647);
+  padding: 5px;
+  border-radius: 5px;
+}
+main .content-wrapper .content .images {
+  width: 98%;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+main .content-wrapper .content .images img {
+  margin: 0 auto;
+  width: 80%;
+  max-height: 140px;
+  border-radius: 5px;
+}
+main .content-wrapper .content .info {
+  width: 80%;
+  height: 100px;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+main .content-wrapper .content .info .price {
+  display: flex;
+}
+main .content-wrapper .content .info .price svg {
+  width: 14px;
+}
+main .content-wrapper .content .info .purchase-button {
+  padding: 5px;
+  width: 100%;
+  border: 1px solid rgba(156, 156, 156, 0.329);
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+main .content-wrapper .content .info .purchase-button a {
+  display: block;
+}
+main .content-wrapper .content .info .purchase-button a:hover {
+  color: white;
+  border: none;
+}
+main .content-wrapper .content .info .purchase-button:hover {
+  background-color: #E9C0A0;
+  color: white;
+}
+main .content-wrapper .content .info .purchase-button:hover svg {
+  fill: white;
+}
+main .content-wrapper .content .info .favorite-button {
+  position: absolute;
+  right: 0;
+  top: 30px;
+}
+main .content-wrapper .content .info .favorite-button svg {
+  width: 28px;
+}
+main .content-wrapper .content .info .favorite-button .selected {
+  fill: red;
+}
+main .description {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+main .description .info {
+  width: 30%;
+  margin-left: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+main .description .info a {
+  background-color: #A87E5D;
+  width: 40%;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+}
+main .description .info a svg {
+  fill: white;
+}
+main .description img {
+  width: 50%;
+  border-radius: 5px 0 0 5px;
+}
+main .category-wrapper {
+  height: 90%;
+  margin-bottom: 100px;
+}
+main .category-wrapper ul {
+  width: 95%;
+  margin: 0 auto;
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+main .category-wrapper ul li {
+  width: 30%;
+  box-shadow: 0px 0px 10px 2px rgba(119, 119, 119, 0.137254902);
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+  margin: 5px 0;
+}
+main .category-wrapper ul li a {
+  display: block;
+  position: relative;
+}
+main .category-wrapper ul li a svg {
+  position: absolute;
+  right: 10px;
+  top: 0px;
+}
+main .category-wrapper .button {
+  width: 90%;
+  margin: 10px auto;
+  display: flex;
+  justify-content: center;
+}
+main .category-wrapper .button button {
+  background-color: #A87E5D;
+  padding: 20px 200px;
+  border-radius: 5px;
+  color: white;
+  position: relative;
+}/*# sourceMappingURL=index.css.map */

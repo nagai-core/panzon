@@ -21,20 +21,6 @@ class UserAddressSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'user_id' => 1,
-                'address' => 'お宅',
-                'post_code' => '67890',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-            'user_id' => 2,
-            'address' => 'tokyo tower',
-            'post_code' => '12345',
-            'created_at' => now(),
-            'updated_at' => now(),
-            ],
-            [
                 'user_id' => 2,
                 'address' => '宇宙',
                 'post_code' => '67890',
