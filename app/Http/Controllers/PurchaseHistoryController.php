@@ -22,7 +22,7 @@ class PurchaseHistoryController extends Controller
         $cartItems = Session::get('cartItems');
         //dd($cartItems);
         $history = new PurchaseHistory();
-        $history->user_id = auth()->id(); 
+        $history->user_id = auth()->id();
         $history->save();
 
         foreach ($cartItems as $cartItem) {

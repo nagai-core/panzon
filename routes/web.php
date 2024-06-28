@@ -8,8 +8,9 @@ use App\Http\Controllers\MailController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\StripeController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\CompleteController;
 use App\Http\Controllers\PurchaseHistoryController;
-
+use App\Http\Controllers\MypageController;
 Route::get('/purchase-completed', [MailController::class, 'purchaseCompleted'])->name('purchaseCompleted');
 // Route::get('/', function () {
 //     return view('welcome');
@@ -40,7 +41,7 @@ Route::middleware('auth:users')->group(function () {
     //購入履歴
     Route::get('/purchase-history', [PurchaseHistoryController::class, 'index'])->name('purchaseHistory.index');
     Route::get('/purchase-store', [PurchaseHistoryController::class, 'store'])->name('purchaseHistory.store');
-
+    Route::get('/mypage', [MypageController::class, 'index'])->name('mypage.index');
 });
 
 //Stripe

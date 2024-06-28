@@ -21,25 +21,28 @@ class MailController extends Controller
 {
     public function purchaseCompleted(Request $request)
     {
-        
+
         $cartItems = session('cartItems');
         $user =Auth::user();
         $email = $user->email;
         $address = $user->useraddress->first()->address ?? null;
         Log::channel('sendmail')->info('Sending email to: ' . $email);
         SendMailJob::dispatch($email, $cartItems,$address);
+        $count = 0;
         foreach ($cartItems as $cartItem){
             $item = $cartItem ->item;
             $amount = $cartItem -> amount;
             $owner = $item->owner;
             $ownerEmail = $owner->email;
+            $count += $cartItem->amount * $cartItem->item->price;
             SendOrderNotJob::dispatch($ownerEmail,$item,$amount);
             Log::channel('sendmail')->info('Sending email to: ' . $email);
-        }       
+        }
         //dd($email);
-        
-        
+
+
         //echo('送信しました');
-        return redirect()->route('item.list');
+        // return redirect()->route('item.list');
+        return view('buy.complete', compact('cartItems', 'count', 'address'));
     }
 }

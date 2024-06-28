@@ -1,0 +1,24 @@
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+main {
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+main .wrapper {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  border-radius: 5px;
+  padding: 20px;
+}
+main .title {
+  margin-bottom: 30px;
+}
+main .address {
+  text-align: center;
+}/*# sourceMappingURL=complete.css.map */
