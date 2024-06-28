@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Owner\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Models\Category;
+use App\Models\Item;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -29,7 +31,12 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('owner.dashboard', absolute: false));
+        $latestBreads = Item::with('images')->orderBy('created_at', 'desc')->take(4)->get();
+        $categories = Category::all();
+        // dd($latestBreads);
+        return redirect()->route('owner.index', compact('latestBreads', 'categories'));
+
+        // return redirect()->intended(route('owner.dashboard', absolute: false));
     }
 
     /**

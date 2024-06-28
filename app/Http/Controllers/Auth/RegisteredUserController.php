@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\UserAddress;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -46,10 +47,16 @@ class RegisteredUserController extends Controller
             'username' => $request->username,
             'icon' => $request->hasFile('icon') ? $request->file('icon')->store('icons', 'public') : null,
         ]);
+
+        $userId = $user->id;
+        UserAddress::create([
+            'user_id' => $userId,
+            'address' => $request->address,
+            'post_code' => $request->postcode,
+        ]);
         event(new Registered($user));
 
-        Auth::login($user);
-
-        return redirect(route('dashboard', absolute: false));
+        // Auth::login($user);
+        return redirect(route('login', absolute: false));
     }
 }

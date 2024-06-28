@@ -37,6 +37,21 @@
             <x-input-error :messages="$errors->get('icon')" class="mt-2" />
         </div>
 
+        <div class="mt-4">
+            <x-input-label for="address" :value="__('住所')" />
+            <x-text-input id="address" class="block mt-1 w-full" type="text" name="address" :value="old('address')"
+                required autocomplete="address" />
+            <x-input-error :messages="$errors->get('address')" class="mt-2" />
+        </div>
+
+        <!-- Postcode -->
+        <div class="mt-4">
+            <x-input-label for="postcode" :value="__('郵便番号')" />
+            <x-text-input id="postcode" class="block mt-1 w-full" type="text" name="postcode" :value="old('postcode')"
+                required autocomplete="postcode" />
+            <x-input-error :messages="$errors->get('postcode')" class="mt-2" />
+        </div>
+
 
         <!-- Password -->
         <div class="mt-4">

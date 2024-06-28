@@ -90,6 +90,9 @@ class SalesAnalysisController extends Controller
     $categoryLabels = $categorySales->pluck('category_name');
     $categoryData = $categorySales->pluck('total_sales');
 
-    return view('owner.analysis', compact('dailyLabels', 'dailyData', 'monthlyLabels', 'monthlyData', 'productLabels', 'productData', 'categoryLabels', 'categoryData'));
+    $ownerId = Auth::id();
+    $owner = Owner::find($ownerId);
+
+    return view('owner.analysis', compact('dailyLabels', 'dailyData', 'monthlyLabels', 'monthlyData', 'productLabels', 'productData', 'categoryLabels', 'categoryData', 'owner'));
     }
 }

@@ -114,9 +114,15 @@ class Item extends Model
                     ->orWhere('content', 'like', "%$search%");
         }
     }
+    // is_variableが0のアイテムを除外するスコープ
+    public function scopeExcludeNonVariableItems($query)
+    {
+        return $query->where('is_variable', '!=', 0);
+    }
     public static function orderItems($category_id, $order,$search)
     {
         return static::filterByCategory($category_id)
+                    ->excludeNonVariableItems()
                     ->sortByOrder($order)
                     ->searchItem($search)
                     ->get();
