@@ -16,7 +16,7 @@ class ItemSeeder extends Seeder
         DB::table('items')->insert([
             [
                 'category_id' => 5,
-                'owner_id' => rand(1, 5),
+                'owner_id' => 1,
                 'is_variable' => true,
                 'item_name' => 'サクサクバタクロワッサン',
                 'price' => rand(100, 500),
@@ -25,7 +25,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'category_id' => 1,
-                'owner_id' => rand(1, 5),
+                'owner_id' => 1,
                 'is_variable' => true,
                 'item_name' => 'バター香るふんわり食パン',
                 'price' => rand(100, 500),
@@ -34,7 +34,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'category_id' => 6,
-                'owner_id' => rand(1, 5),
+                'owner_id' => 1,
                 'is_variable' => true,
                 'item_name' => 'つぶあんパン',
                 'price' => rand(100, 500),
@@ -43,7 +43,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'category_id' => 2,
-                'owner_id' => rand(1, 5),
+                'owner_id' => 1,
                 'is_variable' => true,
                 'item_name' => 'メープルメロンパン',
                 'price' => rand(100, 500),
@@ -52,7 +52,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'category_id' => 4,
-                'owner_id' => rand(1, 5),
+                'owner_id' => 1,
                 'is_variable' => true,
                 'item_name' => 'スパイシーカレーパン',
                 'price' => rand(100, 500),
@@ -61,7 +61,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'category_id' => 3,
-                'owner_id' => rand(1, 5),
+                'owner_id' => 1,
                 'is_variable' => true,
                 'item_name' => '抹茶ホワイトチョコクッキー',
                 'price' => rand(100, 500),
@@ -70,7 +70,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'category_id' => 5,
-                'owner_id' => rand(1, 5),
+                'owner_id' => 1,
                 'is_variable' => true,
                 'item_name' => 'アーモンドクロワッサン',
                 'price' => rand(100, 500),
@@ -79,7 +79,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'category_id' => 6,
-                'owner_id' => rand(1, 5),
+                'owner_id' => 1,
                 'is_variable' => true,
                 'item_name' => 'こしあんパン',
                 'price' => rand(100, 500),
@@ -88,7 +88,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'category_id' => 1,
-                'owner_id' => rand(1, 5),
+                'owner_id' => 1,
                 'is_variable' => true,
                 'item_name' => '全粒粉の健康食パン',
                 'price' => rand(100, 500),
@@ -97,7 +97,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'category_id' => 2,
-                'owner_id' => rand(1, 5),
+                'owner_id' => 1,
                 'is_variable' => true,
                 'item_name' => 'チョコチップメロンパン',
                 'price' => rand(100, 500),
@@ -106,7 +106,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'category_id' => 3,
-                'owner_id' => rand(1, 5),
+                'owner_id' => 1,
                 'is_variable' => true,
                 'item_name' => '抹茶ホワイトチョコクッキー',
                 'price' => rand(100, 500),
@@ -115,7 +115,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'category_id' => 5,
-                'owner_id' => rand(1, 5),
+                'owner_id' => 1,
                 'is_variable' => true,
                 'item_name' => 'アーモンドクロワッサン',
                 'price' => rand(100, 500),
@@ -124,7 +124,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'category_id' => 6,
-                'owner_id' => rand(1, 5),
+                'owner_id' => 1,
                 'is_variable' => true,
                 'item_name' => 'こしあんパン',
                 'price' => rand(100, 500),
@@ -133,7 +133,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'category_id' => 1,
-                'owner_id' => rand(1, 5),
+                'owner_id' => 1,
                 'is_variable' => true,
                 'item_name' => '全粒粉の健康食パン',
                 'price' => rand(100, 500),
@@ -142,7 +142,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'category_id' => 6,
-                'owner_id' => rand(1, 5),
+                'owner_id' => 1,
                 'is_variable' => true,
                 'item_name' => 'こしあんパン',
                 'price' => rand(100, 500),
@@ -151,7 +151,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'category_id' => 1,
-                'owner_id' => rand(1, 5),
+                'owner_id' => 1,
                 'is_variable' => true,
                 'item_name' => 'もっちりミルク食パン',
                 'price' => rand(100, 500),
@@ -160,7 +160,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'category_id' => 3,
-                'owner_id' => rand(1, 5),
+                'owner_id' => 1,
                 'is_variable' => true,
                 'item_name' => 'バター香るサクサククッキー',
                 'price' => rand(100, 500),
@@ -169,7 +169,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'category_id' => 2,
-                'owner_id' => rand(1, 5),
+                'owner_id' => 1,
                 'is_variable' => true,
                 'item_name' => 'ココアメロンパン',
                 'price' => rand(100, 500),
@@ -178,7 +178,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'category_id' => 4,
-                'owner_id' => rand(1, 5),
+                'owner_id' => 1,
                 'is_variable' => true,
                 'item_name' => 'チーズカレーパン',
                 'price' => rand(100, 500),
@@ -187,7 +187,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'category_id' => 6,
-                'owner_id' => rand(1, 5),
+                'owner_id' => 1,
                 'is_variable' => true,
                 'item_name' => 'クリームあんパン',
                 'price' => rand(100, 500),
@@ -196,7 +196,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'category_id' => 5,
-                'owner_id' => rand(1, 5),
+                'owner_id' => 1,
                 'is_variable' => true,
                 'item_name' => 'チョコクロワッサン',
                 'price' => rand(100, 500),
@@ -205,7 +205,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'category_id' => 3,
-                'owner_id' => rand(1, 5),
+                'owner_id' => 1,
                 'is_variable' => true,
                 'item_name' => 'アーモンドクッキー',
                 'price' => rand(100, 500),
@@ -214,7 +214,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'category_id' => 2,
-                'owner_id' => rand(1, 5),
+                'owner_id' => 1,
                 'is_variable' => true,
                 'item_name' => '苺メロンパン',
                 'price' => rand(100, 500),

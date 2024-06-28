@@ -36,13 +36,16 @@ Route::middleware('auth:users')->group(function () {
     Route::delete('/favorites/{item}', [ItemController::class, 'favorite_destroy'])->name('favorite.destroy');
     Route::get('/favorites', [ItemController::class, 'favorite'])->name('favorite.index');
         //パン一覧と詳細は/item/listルート
-    Route::get('/list', [ItemController::class, 'list'])->name('item.list');
     Route::get('/item/{itemId}', [ItemController::class, 'show'])->name('item.show');
     //購入履歴
     Route::get('/purchase-history', [PurchaseHistoryController::class, 'index'])->name('purchaseHistory.index');
     Route::get('/purchase-store', [PurchaseHistoryController::class, 'store'])->name('purchaseHistory.store');
     Route::get('/mypage', [MypageController::class, 'index'])->name('mypage.index');
 });
+
+Route::get('/list', [ItemController::class, 'list'])->name('item.list');
+
+Route::get('/item/{itemId}', [ItemController::class, 'show'])->name('item.show');
 
 //Stripe
 Route::get('/stripe', [StripeController::class, 'checkout'])->name('checkout');
