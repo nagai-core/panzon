@@ -28,7 +28,7 @@
                 <form action="" method="post">
                     @csrf
                     <p>最大:{{$item->latestStock->amount}}</p>
-                    <input type="number" name="amount" min="1" max="{{$item->latestStock->amount}}" />
+                    <input type="number" name="amount" value="1" min="1" max="{{$item->latestStock->amount}}" />
                     <button type="submit" class="add-to-cart">カートに追加する</button>
                 </form>
                 @else

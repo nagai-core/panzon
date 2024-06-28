@@ -10,7 +10,7 @@ header {
 }
 header .left-wrapper {
   margin-left: 20px;
-  width: 20%;
+  width: 30%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -19,11 +19,20 @@ header .left-wrapper p {
   font-size: 20px;
   color: white;
 }
+header .left-wrapper .user a {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
 header h1 {
   margin-left: 2%;
   font-size: 24px;
   font-weight: 700;
   color: white;
+}
+header h1 a {
+  display: flex;
+  align-items: center;
 }
 header form {
   display: flex;
