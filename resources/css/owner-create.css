@@ -1,0 +1,58 @@
+.content-wrapper {
+  right: 0;
+  width: 85%;
+  position: fixed;
+  right: 0;
+  top: 10%;
+  overflow: scroll;
+  height: 90%;
+}
+.content-wrapper form {
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+.content-wrapper form .form-group {
+  margin-bottom: 15px;
+}
+.content-wrapper form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+.content-wrapper form input[type=text],
+.content-wrapper form input[type=number],
+.content-wrapper form input[type=file],
+.content-wrapper form select,
+.content-wrapper form textarea {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  transition: border-color 0.3s;
+}
+.content-wrapper form input[type=text]:focus,
+.content-wrapper form input[type=number]:focus,
+.content-wrapper form input[type=file]:focus,
+.content-wrapper form select:focus,
+.content-wrapper form textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+.content-wrapper form button[type=submit] {
+  padding: 10px 20px;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+.content-wrapper form button[type=submit]:hover {
+  background-color: #0062cc;
+  border-color: #0062cc;
+}/*# sourceMappingURL=owner-create.css.map */

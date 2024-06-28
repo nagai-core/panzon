@@ -1,0 +1,92 @@
+main {
+  width: 60%;
+  margin: 0 auto;
+}
+main .cart {
+  width: 40%;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+main .cart img {
+  margin-right: 20px;
+  border-radius: 5px;
+}
+main .cart .info {
+  flex-grow: 1;
+}
+main .cart .info p {
+  margin: 0 0 10px;
+}
+main .cart .amount {
+  display: flex;
+  align-items: center;
+}
+main .cart .amount form {
+  display: inline-block;
+  margin: 0 5px;
+}
+main .cart .amount button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+main .cart .amount button:hover {
+  background-color: #0056b3;
+}
+main .cart .amount p {
+  margin: 0 10px;
+}
+main .cart form {
+  margin-top: 10px;
+}
+main .cart form button {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+main .cart form button:hover {
+  background-color: #c82333;
+}
+main .sold-out {
+  color: #dc3545;
+  font-weight: bold;
+}
+main .money {
+  display: flex;
+  justify-content: center;
+  width: 40%;
+  margin: 0 auto;
+}
+main .money button {
+  width: 100%;
+  background-color: #A87E5D;
+  padding: 10px;
+  color: white;
+  border-radius: 5px;
+}
+main .back {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .back a {
+  padding: 10px 30px;
+  border-radius: 5px;
+  border: 1px solid rgb(215, 211, 211);
+}/*# sourceMappingURL=cart.css.map */

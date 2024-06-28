@@ -2,7 +2,12 @@
 
 use App\Http\Controllers\Owner\CategoryController;
 use App\Http\Controllers\Owner\ItemController;
+use App\Http\Controllers\Owner\StockController;
+use App\Http\Controllers\Owner\PurchaseHistoryController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MailController;
+use App\Http\Controllers\Owner\SalesAnalysisController;
+
 
 Route::middleware(['auth:owners', 'verified'])->group(function () {
     Route::get('/', [ItemController::class, 'index'])->name("index");
@@ -10,7 +15,16 @@ Route::middleware(['auth:owners', 'verified'])->group(function () {
     Route::get('/category/{categoryname}', [ItemController::class, 'categoryShow'])->name("category.show");
     Route::post('/category/store', [CategoryController::class, 'store'])->name("category.store");
     Route::get('/create', [ItemController::class, 'create'])->name("create");
-    Route::post('/', [ItemController::class, 'store'])->name("store");
+    Route::post('/store', [ItemController::class, 'store'])->name("store");
+
+    Route::post('/', [StockController::class, 'stockUpdate'])->name('stockUpdate');
+
+    Route::get('/{id}/edit', [ItemController::class, 'edit'])->name('edit');
+    Route::put('/{id}/edit', [ItemController::class, 'update'])->name('update');
+    Route::put('/{id}/status', [ItemController::class, 'status'])->name('status');
+    Route::get('/owner-notification', [MailController::class, 'ownerNotification'])->name('ownerNotification');
+    Route::get('/purchase-history', [PurchaseHistoryController::class, 'index'])->name('purchaseHistory');
+    Route::get('/analysis', [SalesAnalysisController::class, 'index'])->name('analysis');
 });
 
 Route::get('/dashboard', function () {

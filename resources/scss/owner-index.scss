@@ -1,0 +1,86 @@
+.content-wrapper {
+    right: 0;
+    width: 85%;
+    position: fixed;
+    right: 0;
+    top: 10%;
+    overflow: scroll;
+    height: 90%;
+
+    table {
+        width: 98%;
+        margin: 0 auto;
+        border-collapse: separate;
+        border-spacing: 0 10px;
+        thead {
+            tr {
+                box-shadow: none;
+            }
+        }
+        tr{
+            border-spacing: 0 100px;
+            margin-bottom: 30px;
+            box-shadow: 0px 0px 10px 2px #77777721;
+            height: 80px;
+            border: 1px solid rgba(0, 0, 0, 0.27);
+            border-radius: 5px;
+            // background-color: blue;
+            th,td {
+                text-align: center;
+                img {
+                    margin: 0 auto;
+                }
+                form {
+                    display: flex;
+                    justify-content: center;
+                    .statusBtn {
+                        display: flex;
+                        padding: 10px;
+                        border-radius: 5px;
+                        color: white;
+                        svg {
+                            fill: white;
+                            width: 18px;
+                        }
+                        font-size: 15px;
+
+                        justify-content: center;
+                        align-items: center;
+                    }
+                    .launch {
+                        background-color: #52AF66;
+                    }
+                    .stoppage {
+                        background-color: #E85B5B;
+                    }
+                }
+            }
+            .status {
+                width: 100px;
+                div {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    svg {
+                        width: 15px;
+                        height: 15px;
+                    }
+                }
+                .launch {
+                    color: #52AF66;
+                    fill: #52AF66;
+                }
+                .stoppage {
+                    color: #E85B5B;
+                    fill: #E85B5B;
+                }
+            }
+        }
+        .dummy {
+            box-shadow: none;
+        }
+    }
+}
+.aiueo {
+    position: fixed;
+}

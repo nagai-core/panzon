@@ -11,51 +11,61 @@ use App\Models\Owner;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+
 class ItemController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $breads = Item::itemsOwner();
-        return view("owner.index", compact("breads"));
+        $ownerId = Auth::id();
+        $owner = Owner::find($ownerId);
+        $categories = Category::all();
+        $breads = Item::itemsOwner($request->search);
+        return view("owner.index", compact("breads", "owner", "categories"));
     }
 
     public function categoryShow($categoryName)
     {
+        $ownerId = Auth::id();
+        $owner = Owner::find($ownerId);
+        $categories = Category::all();
         $breads = Item::itemsByCategoryName($categoryName);
-        return view('owner.index', compact('breads'));
+        return view('owner.index', compact('breads', 'owner', 'categories'));
     }
+
     public function create()
     {
+        $ownerId = Auth::id();
+        $owner = Owner::find($ownerId);
         $categories = Category::all();
-        return view('owner.create', compact('categories'));
+        return view('owner.create', compact('categories', 'owner'));
     }
-    // 商品登録処理
+
     public function store(Request $request)
     {
-        $item = new Item();
-        $item->category_id = $request->category_id;
-        $item->item_name = $request->item_name;
-        $item->price = $request->price;
-        $item->content = $request->content;
-        $item->owner_id = auth()->user()->id;
-        $item->is_variable = true;
-        $item->save();
+        $item = Item::creates($request->all(), auth()->user()->id);
 
-        $stock = new Stock();
-        $stock->item_id = $item->id;
-        $stock->amount = $request->amount; // amountのデフォルト値を設定
-        $stock->save();
-
-
-        if ($request->hasFile('images')) {
-            foreach ($request->file('images') as $index => $image) {
-                $ext = $image->guessExtension();
-                $filename = "{$item->id}_{$index}.{$ext}";
-                $path = $image->storeAs('images', $filename, 'public');
-                $url = Storage::url($path);
-                $item->images()->create(['url' => $url, 'is_variable' => true]);
-            }
-        }
         return redirect()->route('owner.index');
     }
+
+    public function edit($id)
+    {
+        $bread = Item::findOrFail($id);
+        $categories = Category::all();
+        return view('owner.edit', compact('bread', 'categories'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $bread = Item::updates($request->all(), $id);
+        return redirect()->route('owner.index');
+    }
+
+    public function status($id)
+{
+    $item = Item::findOrFail($id);
+    $item->is_variable = $item->is_variable ? 0 : 1;
+    $item->save();
+
+    return redirect()->route('owner.index');
+}
 }

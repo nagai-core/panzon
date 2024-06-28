@@ -1,0 +1,98 @@
+header {
+  background-color: #D39D78;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10%;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+}
+header h1 {
+  margin-left: 2%;
+  font-size: 24px;
+  font-weight: 700;
+}
+header h1 a {
+  display: flex;
+  align-items: center;
+}
+header form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 40%;
+}
+header form .input {
+  width: 80%;
+  height: 70%;
+  border: none;
+  border-radius: 5px 0 0 5px;
+}
+header form button {
+  background-color: #A87E5D;
+  width: 80px;
+  border-radius: 0 5px 5px 0;
+  border: none;
+  height: 70%;
+}
+header form button svg {
+  fill: white;
+  margin: 0 auto;
+}
+
+.left-wrapper {
+  background-color: #E9C0A0;
+  width: 15%;
+  height: 100%;
+  position: fixed;
+  top: 10%;
+}
+.left-wrapper .owner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+}
+.left-wrapper .owner p {
+  padding-top: 5px;
+  font-size: 18px;
+  font-weight: 500;
+}
+.left-wrapper .owner img {
+  width: 100px;
+  border-radius: 50% 50%;
+}
+.left-wrapper nav {
+  display: flex;
+  flex-direction: column;
+}
+.left-wrapper nav .btn {
+  margin: 15px 0;
+  padding: 15px;
+}
+.left-wrapper nav .btn a {
+  margin-left: 10%;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 500;
+}
+.left-wrapper nav .btn a svg {
+  margin-right: 10px;
+}
+.left-wrapper nav .btn:hover {
+  background-color: #F4E3D7;
+}
+.left-wrapper nav .checked {
+  background-color: #F4E3D7;
+}
+
+.modal {
+  display: none;
+}
+
+.modal.is-open {
+  display: block;
+}/*# sourceMappingURL=owner-components.css.map */

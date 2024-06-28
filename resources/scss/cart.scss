@@ -1,0 +1,129 @@
+main {
+    width: 60%;
+    margin: 0 auto;
+    // .cart {
+    //     display: flex;
+    //     justify-content: space-around;
+    //     width: 60%;
+    //     border-radius: 5px;
+    //     margin: 0 auto;
+    //     padding: 10px;
+    //     img {
+    //         width: 60%;
+    //     }
+    //     .info {
+    //         width: 40%;
+    //         background-color: red;
+    //         .amount {
+    //             display: flex;
+    //         }
+    //     }
+    // }
+    .cart {
+        width: 40%;
+        background-color: #fff;
+        border: 1px solid #dee2e6;
+        border-radius: 5px;
+        padding: 20px;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+        img {
+          margin-right: 20px;
+          border-radius: 5px;
+        }
+
+        .info {
+          flex-grow: 1;
+          p {
+            margin: 0 0 10px;
+          }
+        }
+
+        .amount {
+          display: flex;
+          align-items: center;
+
+          form {
+            display: inline-block;
+            margin: 0 5px;
+          }
+
+          button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+
+            &:hover {
+              background-color: #0056b3;
+            }
+          }
+
+          p {
+            margin: 0 10px;
+          }
+        }
+
+        form {
+          margin-top: 10px;
+
+          button {
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+
+            &:hover {
+              background-color: #c82333;
+            }
+          }
+        }
+      }
+
+      // 売り切れメッセージのスタイル
+      .sold-out {
+        color: #dc3545;
+        font-weight: bold;
+      }
+
+      .money {
+        display: flex;
+        justify-content: center;
+        width: 40%;
+        margin: 0 auto;
+        button {
+            width: 100%;
+            background-color: #A87E5D;
+            padding: 10px;
+            color: white;
+            border-radius: 5px;
+        }
+      }
+
+      .back {
+        // text-align: center;
+        // display: flex;
+        // justify-content: center;
+        // background-color: red;
+        // background-color: red;
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        a {
+            padding: 10px 30px;
+            border-radius: 5px;
+            border: 1px solid rgb(215, 211, 211);
+        }
+    }
+}

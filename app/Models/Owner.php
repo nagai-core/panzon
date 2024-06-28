@@ -30,7 +30,7 @@ class Owner extends Authenticatable
     }
     public function addresses()
     {
-        return $this->hasMany(OwnerAddress::class);
+        return $this->hasMany(Owner_address::class);
     }
 
     public function items()

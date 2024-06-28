@@ -126,6 +126,11 @@ return [
         'emergency' => [
             'path' => storage_path('logs/laravel.log'),
         ],
+        'sendmail' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/sendmail.log'),
+            'level' => 'debug',
+        ],
 
     ],
 

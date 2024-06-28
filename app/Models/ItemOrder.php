@@ -11,7 +11,7 @@ class ItemOrder extends Model
     {
         return $this->belongsTo(Item::class);
     }
-    public function purchase_history()
+    public function purchaseHistory()
     {
         return $this->belongsTo(PurchaseHistory::class);
     }

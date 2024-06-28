@@ -12,4 +12,10 @@ class UserAddress extends Model
         return $this->belongsTo(User::class);
     }
     use HasFactory;
+
+    protected $fillable = [
+        'user_id',
+        'address',
+        'post_code',
+    ];
 }
