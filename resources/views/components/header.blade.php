@@ -1,6 +1,6 @@
 <header>
     <div class="left-wrapper">
-        <h1><a href="/">PANZON</a></h1>
+        <h1><a href="/">PANZON</a><img src="{{ asset('storage/logo/pan.gif') }}" alt="GIF Image" style="width: 70px; height: 70px"></h1>
         <p><a href="{{route('cart.index')}}">cart</a></p>
         @if(Auth::check())
         <p><a href="{{route('mypage.index')}}">{{Auth::user()->name}}</a></p>

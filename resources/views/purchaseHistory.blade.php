@@ -15,8 +15,15 @@
                     <ul>
                         @foreach ($history->itemOrders as $itemOrder)
                             <li>
-                                <strong>Item Name:</strong> {{ $itemOrder->item->item_name ?? null}} <br>
-                                <strong>Amount:</strong> {{ $itemOrder->amount ?? null}}
+                                @if ($itemOrder->item && $itemOrder->item->images)
+                                    @foreach ($itemOrder->item->images as $image)
+                                        @if($image->is_variable)
+                                        <img src="{{ $image->url }}"style="width: 100px; height: 100px;">
+                                        @endif
+                                    @endforeach
+                                @endif<br>
+                                <strong>商品名:</strong> {{ $itemOrder->item->item_name ?? null}} <br>
+                                <strong>数量:</strong> {{ $itemOrder->amount ?? null}}
                             </li>
                         @endforeach
 

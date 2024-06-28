@@ -19,7 +19,10 @@
 <body>
     <x-owner-header />
     <main>
-        <x-owner-nav  :ownerName="$owner->username" :url="$owner->icon"/>
+        @php
+            $owner = Auth::user();
+        @endphp
+        <x-owner-nav  :ownerName="$owner->username" :url="$owner->icon ?? null"/>
         <div class="content-wrapper">
             <table>
                 <thead>
