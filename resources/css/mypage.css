@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans JP', Arial, sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+
+header {
+    background-color: #D2A679;
+    padding: 15px 0;
+    text-align: center;
+    color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+main {
+    margin: 120px auto 40px;
+    padding: 30px;
+    max-width: 800px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 28px;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+.user-info {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 18px;
+    color: #555;
+}
+
+.username {
+    font-weight: 700;
+    color: #D2A679;
+}
+
+.links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.link-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 150px;
+    padding: 20px;
+    background-color: #D2A679;
+    color: white;
+    border-radius: 12px;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.link-box:hover {
+    background-color: #c19561;
+    transform: translateY(-5px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.link-box i {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.link-box span {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+form{
+    visibility:hidden
+}
+button{
+    visibility:hidden
+}
+
